@@ -151,7 +151,7 @@ main {
     <div id="pizzas" class="section-header">PIZZA CORNER</div>
     <div id="render-pizzas"></div>
 
-    <div id="burgers" class="section-header">BURGERS & SANDWICHES</div>
+    <div id="burgers" class="section-header">BURGERS </div>
     <div id="render-burgers"></div>
 
     <div id="wraps" class="section-header">WRAPS & SHAWARMA</div>
@@ -163,7 +163,7 @@ main {
     <div id="starters" class="section-header">STARTERS</div>
     <div id="render-starters"></div>
 
-    <div id="fries" class="section-header">FRIES & WINGS</div>
+    <div id="fries" class="section-header">FRIES </div>
     <div id="render-fries"></div>
 
     <div id="shakes" class="section-header">SHAKES & SMOOTHIES</div>
@@ -178,7 +178,12 @@ main {
 
     <div id="slices" class="section-header">SLICES & DIPS</div>
     <div id="render-slices"></div>
- 
+ <div id="sandwiches" class="section-header">SANDWICHES</div>
+<div id="render-sandwiches"></div>
+
+<div id="wings" class="section-header">WINGS</div>
+<div id="render-wings"></div>
+    
 </main>
 
 <div class="footer-cart">
@@ -214,8 +219,7 @@ main {
 
 <script>
     let cart = []; let total = 0; let service = "";
-
-    const menuData = {
+       const menuData = {
         deals: [
             {n:"Beef Burger Deal", p:699, d:"Beef burger, Regular Fries, Nr. Drink"},
             {n:"Fuel Fillet Deal", p:649, d:"Fuel fillet, Regular Fries, Nr. drink"},
@@ -245,65 +249,74 @@ main {
             {c:"Deep Pan Pizza", f:["Deep Pan Special"], pr:{M:1349, L:1749, F:2249}}
         ],
         burgers: [
-            {n:"Mini Zingo", p:349}, {n:"Zingo Wingo", p:449}, {n:"Waheshi Beef", p:599}, {n:"Petty Shetty", p:449},
-            {n:"Fuel Fillet", p:549}, {n:"Mighty Zingo", p:649}, {n:"Monster Grillo", p:599},
-            {n:"Panini Sandwich", p:449}, {n:"Club Sandwich", p:449}, {n:"Grill Sandwich", p:499}, {n:"Calzone with Fries", p:599}
+            {n:"Mini Zingo", p:349}, {n:"Zingo Wingo", p:449}, {n:"Waheshi Beaf", p:599}, 
+            {n:"Petty Shetty", p:449}, {n:"Fuel Fillet", p:549}, {n:"Mighty Zingo", p:649}, 
+            {n:"Monster Grillo", p:599}
         ],
-        wraps: [
-            {n:"Grill Wraptha", p:649}, {n:"Tikka Paratha", p:449}, {n:"Tortilla Wraptha", p:649}, {n:"Zinger Paratha", p:449},
-            {n:"Malai Boti Wraptha", p:649}, {n:"Shawarma", p:299}, {n:"Shawarma with Cheese", p:349}
+        sandwiches: [
+            {n:"Panini Sandwich", p:449}, {n:"Club Sandwich", p:449}, 
+            {n:"Grill Sandwich", p:499}, {n:"Calzone with Fries", p:599}
         ],
-        pasta: [
-            {n:"Creamy Pasta", p:449}, {n:"Alfredo Pasta", p:449}, {n:"Chicken Chowmein", p:599}, {n:"Crunchy Pasta", p:699}
+                wraps: [
+            {n:"Grill Wraptha", p:649}, 
+            {n:"Tortilla Wraptha", p:649},
+            {n:"Malai Boti Wraptha", p:649}, 
+            {n:"Zinger Wraptha", p:649}, // New item added
+            {n:"Tikka Paratha", p:449}, 
+            {n:"Zinger Paratha", p:449},
+            {n:"Malai Paratha", p:449}, // New item added
+            {n:"Shawarma", p:299}, 
+            {n:"Shawarma with Cheese", p:349}
         ],
+           
         starters: [
-            {n:"Behari Rolls (with Fries)", p:599}, {n:"Dynamite Shots (10pc)", p:399}, {n:"Cheese Strips", p:499}, {n:"Chicken Strips", p:499}
+            {n:"Behari Rolls (w/ Fries & Dip)", p:599}, {n:"Dynamite Shots (10pc)", p:399}, 
+            {n:"Cheese Strips (w/ Fries & Dip)", p:499}, {n:"Chicken Strips (w/ Fries & Dip)", p:499}
+        ],
+        wings: [
+            {n:"Crispy Wings (6pc)", p:399}, {n:"Crispy Wings (12pc)", p:749},
+            {n:"Oven Baked Plain (6pc)", p:449}, {n:"Oven Baked Plain (12pc)", p:799},
+            {n:"Oven Baked BBQ (6pc)", p:449}, {n:"Oven Baked BBQ (12pc)", p:799},
+            {n:"Oven Baked Periperi (6pc)", p:449}, {n:"Oven Baked Periperi (12pc)", p:799}
         ],
         fries: [
-            {n:"Masala Fries", p:249}, {n:"Mayo Fries", p:349}, {n:"Grillo Fries", p:599}, {n:"Loaded Fries", p:599},
-            {n:"Crispy Wings (6pc)", p:399}, {n:"Crispy Wings (12pc)", p:749}, {n:"Oven Baked BBQ (6pc)", p:449}
+            {n:"Masala Fries", p:249}, {n:"Mayo Fries", p:349}, {n:"Grillo Fries", p:599}, 
+            {n:"Loaded Fries", p:599}, {n:"Zingo Fries", p:599}
         ],
-                shakes: [
-            {n:"Mango Shake", p:449}, 
-            {n:"Strawberry Shake", p:449}, 
-            {n:"Oreo Shake", p:549}, 
-            {n:"KitKat Shake", p:549}, 
-            {n:"Nutella Shake ", p:549}, 
-            {n:"M&M Shake", p:549},
-            {n:"Bounty Shake", p:549}, 
-            {n:"Snickers Shake", p:549}, 
-            {n:"Choco Brownie Shake", p:549}, 
-            {n:"Pinacolada", p:549}
+        pasta: [
+            {n:"Creamy Pasta (S/L)", p:449}, {n:"Creamy Pasta (L)", p:699}, 
+            {n:"Alfredo Pasta (S/L)", p:449}, {n:"Alfredo Pasta (L)", p:699},
+            {n:"Chicken Chowmein", p:599}, {n:"Crunchy Pasta", p:699}
         ],
-                
-                icecream: [
-            {n:"2 Scoops", p:249}, {n:"3 Scoops", p:349}, {n:"Donuts", p:349}, {n:"Molten Lava with Ice Cream", p:599}, {n:"Brownie with Ice Cream", p:449}
+        shakes: [
+            {n:"Mango", p:449}, {n:"Strawberry", p:449}, {n:"Kulfa", p:449}, 
+            {n:"Pistacho", p:449}, {n:"Chocolate", p:449}, {n:"Coconut", p:449}, 
+            {n:"Pinacolada (Smoothie)", p:449}, {n:"Oreo Shake", p:549}, 
+            {n:"Kitkat Shake", p:549}, {n:"Bounty Shake", p:549}, 
+            {n:"Snakers Shake", p:549}, {n:"Choco Brownie Shake", p:549}, 
+            {n:"M&M Shake", p:549}, {n:"Nutella Shake", p:549}, {n:"Pinacolada (Shake)", p:549}
+        ],
+        icecream: [
+            {n:"2 Scoops", p:249}, {n:"3 Scoops", p:349}, {n:"Donuts", p:349}, 
+            {n:"Molten Lava with Ice Cream", p:599}, {n:"Brownie with Ice Cream", p:449}
         ],
         beverages: [
-            {n:"NR (Regular Drink)", p:100},
-            {n:"Tin Can", p:180},
-            {n:"Half Liter (0.5L)", p:150},
-            {n:"1 Liter Drink", p:220},
-            {n:"1.5 Liter Drink", p:300},
-            {n:"Water (500ml)", p:60},
-            {n:"Water (1.5L)", p:120}
+            {n:"NR", p:89}, {n:"Half Liter", p:129}, {n:"Tin Can", p:129}, 
+            {n:"1 Liter", p:179}, {n:"1.5 Liter", p:229}, 
+            {n:"Water (500ml)", p:79}, {n:"Water (1.5L)", p:119}
         ],
-                extras: [
-            {n:"Extra Cheese (Small)", p:150},
-            {n:"Extra Cheese (Medium)", p:200},
-            {n:"Extra Cheese (Large)", p:250},
-            {n:"Extra Topping (Veggies)", p:100},
-            {n:"Extra Topping (Meat)", p:150}
+        extras: [
+            {n:"Cheese Slice", p:79}, {n:"Mushroom", p:69}, 
+            {n:"Sweet Corn", p:69}, {n:"Olive", p:69}, {n:"Jalapeno", p:69}
         ],
-                slices_dips: [
-            {n:"Extra Pizza Slice", p:200},
-            {n:"Garlic Mayo Dip", p:50},
-            {n:"Chilli Garlic Dip", p:50},
-            {n:"Special Saltino Sauce", p:80}
+        slices_dips: [
+            {n:"Bbq Sauce", p:69}, {n:"Periperi Sauce", p:69}, {n:"Mushroom Sauce", p:99},
+            {n:"Garlic Sauce", p:69}, {n:"Dynamite Sauce", p:69}, {n:"Ranch Sauce", p:69},
+            {n:"Chipotle Sauce", p:69}
         ]
-    }; // Closes the menuData object correctly
+    }; // Closes menuData correctly
 
-    function addToCart(n, p) { // Adds the missing 'function' keyword
+    function addToCart(n, p) { // Fixed function syntax
         cart.push({n, p}); 
         total += p;
         document.getElementById('total-val').innerText = total;
@@ -359,7 +372,9 @@ main {
         renderItems('render-beverages', menuData.beverages);
         renderItems('render-extras', menuData.extras);
     renderItems('render-slices', menuData.slices_dips);
-
+renderItems('render-sandwiches', menuData.sandwiches);
+renderItems('render-wings', menuData.wings);
+    
 
 
     document.getElementById('render-pizzas').innerHTML = menuData.pizzas.map((p, idx) => `
