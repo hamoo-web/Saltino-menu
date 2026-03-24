@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saltino - Official Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root { --saltino-red: #b30000; --white: #FFFFFF; --bg-dark: #800000; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body { 
+            background: radial-gradient(circle, #e60000 0%, var(--bg-dark) 100%); 
+            color: var(--white); font-family: 'Nunito', sans-serif; margin: 0; padding-bottom: 200px;
+        }
+        header { 
+    background-color: #800000; 
+    border-bottom: 2px solid #FFFFFF; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1100; 
+    height: 100px; 
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.logo-container {
+    flex: 0 0 70px; 
+}
+
+.logo-img { 
+    width: 65px; 
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.header-text {
+    flex: 1;
+    text-align: center;
+    padding-right: 70px; 
+}
+
+.brand-name {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.tagline { 
+    font-family: 'Fredoka One', cursive; 
+    font-size: 0.8rem; 
+    color: #FFFFFF;
+    margin-top: 2px;
+}
+
+.cat-nav { 
+    display: flex; 
+    overflow-x: auto; 
+    gap: 10px; 
+    padding: 12px; 
+    background: #b30000; 
+    border-bottom: 2px solid #FFFFFF;
+    position: sticky; 
+    top: 100px; /* This MUST match the header height above */
+    z-index: 1000; 
+}
+
+/* 3. Main Content Spacing */
+main {
+    padding-top: 20px;
+}
+
+.cat-nav::-webkit-scrollbar { 
+    display: none; 
+}
+
+.cat-nav a { 
+    color: var(--white); 
+    text-decoration: none; 
+    border: 1.5px solid var(--white); 
+    padding: 6px 15px; 
+    border-radius: 20px; 
+    white-space: nowrap; 
+    font-size: 0.8rem; 
+    font-weight: 900; 
+}
+
+        .section-header { background: rgba(255,255,255,0.1); padding: 10px 20px; margin: 25px 0 10px; font-family: 'Fredoka One', cursive; font-size: 1.4rem; border-left: 5px solid var(--white); }
+
+        .item-card { background: var(--white); color: #000; border-radius: 15px; margin: 12px 15px; padding: 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .item-info h4 { margin: 0; font-size: 1rem; color: var(--saltino-red); }
+        .item-info p { margin: 4px 0; font-size: 0.75rem; color: #555; font-weight: bold; }
+        .item-price { font-weight: 900; font-size: 1.1rem; }
+        .add-btn { background: var(--saltino-red); color: white; border: none; padding: 8px 15px; border-radius: 8px; font-weight: 900; cursor: pointer; font-size: 0.8rem; }
+
+        .pizza-card { background: rgba(255,255,255,0.1); border: 1.5px solid var(--white); margin: 15px; border-radius: 15px; padding: 15px; }
+        .flavor-select { width: 100%; padding: 10px; border-radius: 8px; margin: 10px 0; font-weight: bold; }
+        .size-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.1); }
+
+        .footer-cart { position: fixed; bottom: 0; width: 100%; background: var(--white); padding: 15px; z-index: 2000; box-shadow: 0 -5px 15px rgba(0,0,0,0.5); }
+        .cart-top { display: flex; justify-content: space-between; color: var(--saltino-red); font-weight: 900; margin-bottom: 10px; }
+        .cart-btns { display: flex; gap: 8px; }
+        .btn-foot { border: none; border-radius: 50px; font-weight: 900; padding: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; flex: 1; font-size: 0.8rem; }
+        .btn-reset { background: #666; color: white; flex: 0.4; }
+        .btn-call { background: #007bff; color: white; text-decoration: none; }
+        .btn-whatsapp { background: #25D366; color: white; flex: 1.3; }
+
+        /* Service Buttons inside Modal */
+        .svc-btn { background: transparent; color: var(--white); border: 2px solid var(--white); padding: 10px 12px; border-radius: 10px; font-weight: 900; cursor: pointer; flex: 1; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="logo.jpg" onerror="this.src='https://raw.githubusercontent.com/HamzaKashif/Saltino/main/logo.jpg'" class="logo-img" alt="Saltino">
+    </div>
+    
+    <div class="header-text">
+        <h1 class="brand-name">SALTINO</h1>
+        <div class="tagline">SAUCIEST IN TOWN</div>
+    </div>
+</header>
+
+
+
+<nav class="cat-nav">
+    <a href="#deals">Deals</a> <a href="#pizzas">Pizzas</a> <a href="#burgers">Burgers & Sandwiches</a> 
+    <a href="#wraps">Wraps & Shawarma</a> <a href="#pasta">Pasta</a> <a href="#starters">Starters</a>
+    <a href="#fries">Fries & Fried </a> <a href="#shakes">Shakes & Smoothies</a> <a href="#icecream">Ice Cream & Desserts</a>
+</nav>
+
+<main>
+    <div id="deals" class="section-header">EXCLUSIVE DEALS</div>
+    <div id="render-deals"></div>
+
+    <div id="pizzas" class="section-header">PIZZA CORNER</div>
+    <div id="render-pizzas"></div>
+
+    <div id="burgers" class="section-header">BURGERS & SANDWICHES</div>
+    <div id="render-burgers"></div>
+
+    <div id="wraps" class="section-header">WRAPS & SHAWARMA</div>
+    <div id="render-wraps"></div>
+
+    <div id="pasta" class="section-header">PASTA & CHOWMEIN</div>
+    <div id="render-pasta"></div>
+
+    <div id="starters" class="section-header">STARTERS</div>
+    <div id="render-starters"></div>
+
+    <div id="fries" class="section-header">FRIES & WINGS</div>
+    <div id="render-fries"></div>
+
+    <div id="shakes" class="section-header">SHAKES & SMOOTHIES</div>
+    <div id="render-shakes"></div>
+
+    <div id="icecream" class="section-header">ICE CREAM & DESSERTS</div>
+    <div id="render-icecream"></div>
+</main>
+
+<div class="footer-cart">
+    <div class="cart-top">
+        <span>TOTAL: RS. <span id="total-val">0</span></span>
+        <span>ITEMS: <span id="count-val">0</span></span>
+    </div>
+    <div class="cart-btns">
+        <button class="btn-foot btn-reset" onclick="resetCart()">RESET</button>
+        <a href="tel:+923426202660" class="btn-foot btn-call"><i class="fas fa-phone"></i> CALL</a>
+        <button class="btn-foot btn-whatsapp" onclick="openModal()"><i class="fab fa-whatsapp"></i> SEND ORDER</button>
+    </div>
+</div>
+
+<div id="checkout-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#b30000; width:92%; max-width:400px; padding:25px; border-radius:25px; border:3px solid #ffffff; text-align:center; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+        <h2 style="color:#ffffff; margin-top:0; font-family:'Fredoka One', cursive;">CHECKOUT</h2>
+        <p style="text-align:left; font-weight:bold; margin-bottom:8px; color:#ffffff;">Select Service:</p>
+        <div class="service-btns" style="display:flex; gap:8px; margin-bottom:20px;">
+            <button class="svc-btn" id="m-btn-delivery" onclick="setSvc('Delivery')">🛵 Delivery</button>
+            <button class="svc-btn" id="m-btn-takeaway" onclick="setSvc('Take Away')">🛍️ Take Away</button>
+            <button class="svc-btn" id="m-btn-dinein" onclick="setSvc('Dine In')">🍽️ Dine In</button>
+        </div>
+        <input type="text" id="addr-box-modal" placeholder="Enter Delivery Address..." style="width:100%; padding:14px; border-radius:12px; border:none; margin-bottom:20px; display:none; font-weight:bold;">
+        <div style="background:#ffffff; padding:15px; border-radius:15px; margin-bottom:20px; border: 2px solid #800000;">
+            <p style="margin:0; color:#b30000; font-weight:bold;">Total Bill:</p>
+            <h3 style="margin:5px 0; font-size:1.8rem; color:#b30000; font-weight:900;">Rs. <span id="modal-total">0</span></h3>
+        </div>
+        <button onclick="confirmOrder()" style="background:#25D366; color:white; border:2px solid #ffffff; width:100%; padding:15px; border-radius:50px; font-weight:900; font-size:1.1rem; cursor:pointer;">CONFIRM & SEND WHATSAPP</button>
+        <p onclick="closeModal()" style="color:#ffffff; margin-top:20px; cursor:pointer; font-weight:bold; text-decoration:underline;">Cancel</p>
+    </div>
+</div>
+
+<script>
+    let cart = []; let total = 0; let service = "";
+
+    const menuData = {
+        deals: [
+            {n:"Beef Burger Deal", p:699, d:"Beef burger, Regular Fries, Nr. Drink"},
+            {n:"Fuel Fillet Deal", p:649, d:"Fuel fillet, Regular Fries, Nr. drink"},
+            {n:"Small Special Pizza Deal", p:849, d:"Small special pizza, Regular Fries, Nr. drink"},
+            {n:"Grill Wrap Deal", p:699, d:"Grill wrap, Regular fries, Nr. Drink"},
+            {n:"Tortilla Wrap Deal", p:699, d:"Tortilla wrap, Regular Fries, Nr. Drink"},
+            {n:"Large + Med Pizza Deal", p:2999, d:"Large pizza, Medium pizza, 1.5 litr drink"},
+            {n:"Monster Grillo Deal", p:699, d:"Monster grillo, Regular Fries, Nr. Drink"},
+            {n:"Loaded Fries Deal", p:649, d:"Loaded fries, Nr. Drink"},
+            {n:"Zingo Fries Deal", p:649, d:"Zingo fries, Nr. Drink"},
+            {n:"Hackle Jackel", p:999, d:"2 zingo wingo, 2 Nr. Drink"},
+            {n:"Dow Dooni Chaar", p:2199, d:"2 zinger, 1 fillet, 1 grillo, small fries, 1L"},
+            {n:"Treat Yourself", p:549, d:"Zingo wingo, fries, Nr. Drink"},
+            {n:"Saheli Bites", p:999, d:"Grill sandwich, 6 pieces crispy wings, fries, 0.5L"},
+            {n:"Yaari Dosti", p:2349, d:"1 med pizza, 2 zinger burgers, small fries, 1.5L"},
+            {n:"Family Meal", p:3199, d:"Spec family pizza, 1/2 Alfredo, 6 wings, 1.5L"},
+            {n:"Pizza Meal 1", p:849, d:"Small pizza, small fries, Nr. Drink"},
+            {n:"Pizza Meal 2", p:2999, d:"Medium pizza, large pizza, 1.5 litr drink"},
+            {n:"Pizza Meal 3", p:3599, d:"Large pizza, family pizza, 1.5 litr drink"},
+            {n:"Shawarma Platter", p:749, d:"Chicken, 2 pieces slice, sauces, 0.5L"}
+        ],
+        pizzas: [
+            {c:"Classic Flavor", f:["Chicken BBQ", "Behari Boti", "Chicken Tikka", "Pepperoni", "Supremo Special", "Nutella Pizza", "PeriPeri Spicy", "Malai Boti"], pr:{S:649, M:1199, L:1599, F:1999}},
+            {c:"Cheese/Veggie", f:["Cheese Weeze", "Veggie Sheegi"], pr:{S:649, M:1149, L:1549, F:1949}},
+            {c:"Special Flavor", f:["Ranch Legend", "Saltino Special", "Tex's Beef"], pr:{S:749, M:1299, L:1699, F:2199}},
+            {c:"Crust & Doner", f:["Kebab Stuffer", "Crown Crust", "Cheese Stuffer", "Behari Kebab", "Doner Pizza"], pr:{M:1299, L:1699, F:2199}},
+            {c:"Deep Pan Pizza", f:["Deep Pan Special"], pr:{M:1349, L:1749, F:2249}}
+        ],
+        burgers: [
+            {n:"Mini Zingo", p:349}, {n:"Zingo Wingo", p:449}, {n:"Waheshi Beef", p:599}, {n:"Petty Shetty", p:449},
+            {n:"Fuel Fillet", p:549}, {n:"Mighty Zingo", p:649}, {n:"Monster Grillo", p:599},
+            {n:"Panini Sandwich", p:449}, {n:"Club Sandwich", p:449}, {n:"Grill Sandwich", p:499}, {n:"Calzone with Fries", p:599}
+        ],
+        wraps: [
+            {n:"Grill Wraptha", p:649}, {n:"Tikka Paratha", p:449}, {n:"Tortilla Wraptha", p:649}, {n:"Zinger Paratha", p:449},
+            {n:"Malai Boti Wraptha", p:649}, {n:"Shawarma", p:299}, {n:"Shawarma with Cheese", p:349}
+        ],
+        pasta: [
+            {n:"Creamy Pasta", p:449}, {n:"Alfredo Pasta", p:449}, {n:"Chicken Chowmein", p:599}, {n:"Crunchy Pasta", p:699}
+        ],
+        starters: [
+            {n:"Behari Rolls (with Fries)", p:599}, {n:"Dynamite Shots (10pc)", p:399}, {n:"Cheese Strips", p:499}, {n:"Chicken Strips", p:499}
+        ],
+        fries: [
+            {n:"Masala Fries", p:249}, {n:"Mayo Fries", p:349}, {n:"Grillo Fries", p:599}, {n:"Loaded Fries", p:599},
+            {n:"Crispy Wings (6pc)", p:399}, {n:"Crispy Wings (12pc)", p:749}, {n:"Oven Baked BBQ (6pc)", p:449}
+        ],
+        shakes: [
+            {n:"Mango / Strawberry Shake", p:449}, {n:"Oreo / KitKat Shake", p:549}, {n:"Nutella / M&M Shake", p:549},
+            {n:"Bounty / Snickers Shake", p:549}, {n:"Choco Brownie Shake", p:549}, {n:"Pinacolada", p:549}
+        ],
+        icecream: [
+            {n:"2 Scoops", p:249}, {n:"3 Scoops", p:349}, {n:"Donuts", p:349}, {n:"Molten Lava with Ice Cream", p:599}, {n:"Brownie with Ice Cream", p:449}
+        ]
+    };
+
+    function addToCart(n, p) {
+        cart.push({n, p}); total += p;
+        document.getElementById('total-val').innerText = total;
+        document.getElementById('count-val').innerText = cart.length;
+    }
+
+    function resetCart() { if(confirm("Clear Cart?")) { cart=[]; total=0; document.getElementById('total-val').innerText=0; document.getElementById('count-val').innerText=0; } }
+
+    function openModal() {
+        if (cart.length === 0) return alert("Your cart is empty!");
+        document.getElementById('modal-total').innerText = total;
+        document.getElementById('checkout-modal').style.display = 'flex';
+    }
+
+    function closeModal() { document.getElementById('checkout-modal').style.display = 'none'; }
+
+    function setSvc(t) {
+        service = t;
+        document.querySelectorAll('.svc-btn').forEach(b => { b.style.background = "transparent"; b.style.color = "#fff"; });
+        let activeBtn = document.getElementById(`m-btn-${t.toLowerCase().replace(' ', '')}`);
+        if(activeBtn) { activeBtn.style.background = "#fff"; activeBtn.style.color = "#b30000"; }
+        document.getElementById('addr-box-modal').style.display = (t === 'Delivery') ? 'block' : 'none';
+    }
+
+    function confirmOrder() {
+        if (!service) return alert("Please select a service!");
+        let addr = document.getElementById('addr-box-modal').value;
+        if (service === 'Delivery' && !addr) return alert("Please enter your address!");
+        let m = `🍟 *SALTINO ORDER* 🍟\n*Service:* ${service}\n`;
+        if(addr) m += `*Address:* ${addr}\n`;
+        m += `----------\n`;
+        cart.forEach((it, i) => m += `${i+1}. ${it.n} - ${it.p}\n`);
+        m += `----------\n*TOTAL BILL: RS. ${total}*`;
+        window.open(`https://wa.me/923426202660?text=${encodeURIComponent(m)}`);
+        closeModal();
+    }
+
+    function renderItems(id, list) {
+        document.getElementById(id).innerHTML = list.map(i => `
+            <div class="item-card"><div class="item-info"><h4>${i.n}</h4>${i.d?`<p>${i.d}</p>`:''}
+            <div class="item-price">Rs. ${i.p}</div></div><button class="add-btn" onclick="addToCart('${i.n}', ${i.p})">+ ADD</button></div>`).join('');
+    }
+
+    renderItems('render-deals', menuData.deals);
+    renderItems('render-burgers', menuData.burgers);
+    renderItems('render-wraps', menuData.wraps);
+    renderItems('render-pasta', menuData.pasta);
+    renderItems('render-starters', menuData.starters);
+    renderItems('render-fries', menuData.fries);
+    renderItems('render-shakes', menuData.shakes);
+    renderItems('render-icecream', menuData.icecream);
+
+    document.getElementById('render-pizzas').innerHTML = menuData.pizzas.map((p, idx) => `
+        <div class="pizza-card"><strong>${p.c}</strong><select id="flv-${idx}" class="flavor-select">${p.f.map(f => `<option>${f}</option>`).join('')}</select>
+        ${Object.entries(p.pr).map(([sz, pr]) => `<div class="size-row"><span>${sz} Size - Rs. ${pr}</span><button class="add-btn" onclick="addToCart(document.getElementById('flv-${idx}').value + ' (${sz})', ${pr})">+ ADD</button></div>`).join('')}</div>
+    `).join('');
+</script>
+</body>
+</html>
