@@ -153,10 +153,6 @@ main {
     <a href="#extras">Toppings</a>
 </nav>
     
-
-    
-</nav>
-
 <main>
     <div id="deals" class="section-header">EXCLUSIVE DEALS</div>
     <div id="render-deals"></div>
@@ -164,8 +160,11 @@ main {
     <div id="pizzas" class="section-header">PIZZA CORNER</div>
     <div id="render-pizzas"></div>
 
-    <div id="burgers" class="section-header">BURGERS </div>
+    <div id="burgers" class="section-header">BURGERS</div>
     <div id="render-burgers"></div>
+
+    <div id="sandwiches" class="section-header">SANDWICHES</div>
+    <div id="render-sandwiches"></div>
 
     <div id="wraps" class="section-header">WRAPS & SHAWARMA</div>
     <div id="render-wraps"></div>
@@ -176,20 +175,19 @@ main {
     <div id="starters" class="section-header">STARTERS</div>
     <div id="render-starters"></div>
 
-    <div id="fries" class="section-header">FRIES </div>
-    <div id="render-fries"></div>
- <div id="sandwiches" class="section-header">SANDWICHES</div>
-<div id="render-sandwiches"></div>
+    <div id="wings" class="section-header">WINGS</div>
+    <div id="render-wings"></div>
 
-<div id="wings" class="section-header">WINGS</div>
-<div id="render-wings"></div>
-     <div class="section-header">SHAKES & SMOOTHIES (STANDARD)</div>
+    <div id="fries" class="section-header">FRIES</div>
+    <div id="render-fries"></div>
+
+    <div id="shakes" class="section-header">SHAKES & SMOOTHIES (STANDARD)</div>
     <div id="render-shakes-std"></div>
     
     <div class="section-header">SHAKES & SMOOTHIES (PREMIUM)</div>
     <div id="render-shakes-pre"></div>
 
-    <div class="section-header">COLD DRINKS & MOJITOS</div>
+    <div id="coffees" class="section-header">COLD DRINKS & MOJITOS</div>
     <div id="render-drinks-cold"></div>
 
     <div class="section-header">TEA CORNER</div>
@@ -197,18 +195,20 @@ main {
 
     <div class="section-header">COFFEE HOUSE</div>
     <div id="render-drinks-coffee"></div>
-    
+
     <div id="icecream" class="section-header">ICE CREAM & DESSERTS</div>
     <div id="render-icecream"></div>
-        <div id="beverages" class="section-header">BEVERAGES & WATER</div>
-     <div id="render-beverages"></div>
-       <div id="extras" class="section-header">EXTRA TOPPINGS</div>
+
+    <div id="beverages" class="section-header">BEVERAGES & WATER</div>
+    <div id="render-beverages"></div>
+
+    <div id="extras" class="section-header">EXTRA TOPPINGS</div>
     <div id="render-extras"></div>
 
     <div id="slices" class="section-header">SLICES & DIPS</div>
     <div id="render-slices"></div>
 </main>
-
+    
 <div class="footer-cart">
     <div class="cart-top">
         <span>TOTAL: RS. <span id="total-val">0</span></span>
@@ -402,24 +402,24 @@ main {
             <div class="item-price">Rs. ${i.p}</div></div><button class="add-btn" onclick="addToCart('${i.n}', ${i.p})">+ ADD</button></div>`).join('');
     }
 
+        // Add these at the very end of your script section
     renderItems('render-deals', menuData.deals);
     renderItems('render-burgers', menuData.burgers);
+    renderItems('render-sandwiches', menuData.sandwiches);
     renderItems('render-wraps', menuData.wraps);
     renderItems('render-pasta', menuData.pasta);
     renderItems('render-starters', menuData.starters);
+    renderItems('render-wings', menuData.wings);
     renderItems('render-fries', menuData.fries);
-        renderItems('render-shakes-std', menuData.shakes_standard);
+    renderItems('render-shakes-std', menuData.shakes_standard);
     renderItems('render-shakes-pre', menuData.shakes_premium);
     renderItems('render-drinks-cold', menuData.drinks_cold);
     renderItems('render-drinks-tea', menuData.drinks_teas);
     renderItems('render-drinks-coffee', menuData.drinks_coffees);
-    
     renderItems('render-icecream', menuData.icecream);
-        renderItems('render-beverages', menuData.beverages);
-        renderItems('render-extras', menuData.extras);
+    renderItems('render-beverages', menuData.beverages);
+    renderItems('render-extras', menuData.extras);
     renderItems('render-slices', menuData.slices_dips);
-renderItems('render-sandwiches', menuData.sandwiches);
-renderItems('render-wings', menuData.wings);
     
 
 
