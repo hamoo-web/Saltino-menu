@@ -116,7 +116,7 @@ main {
     <link rel="icon" type="image/jpeg" href="logo.jpg">
 
 <link rel="apple-touch-icon" href="logo.jpg">
-    
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
@@ -316,5 +316,15 @@ main {
         ${Object.entries(p.pr).map(([sz, pr]) => `<div class="size-row"><span>${sz} Size - Rs. ${pr}</span><button class="add-btn" onclick="addToCart(document.getElementById('flv-${idx}').value + ' (${sz})', ${pr})">+ ADD</button></div>`).join('')}</div>
     `).join('');
 </script>
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Saltino App Ready!'))
+        .catch(err => console.log('App Registration Failed', err));
+    });
+  }
+    </script>
+    
 </body>
 </html>
