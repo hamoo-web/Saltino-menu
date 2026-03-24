@@ -1,15 +1,16 @@
-const CACHE_NAME = 'saltino-v1';
+const CACHE_NAME = 'saltino-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './logo.jpg',
   './manifest.json',
   'https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
+  'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css'
 ];
 
-// 1. Install Event: Save files to the phone's memory
+// 1. Merged Install Event
 self.addEventListener('install', (event) => {
+  self.skipWaiting(); // Forces the update immediately
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('Saltino: Files cached successfully');
@@ -18,7 +19,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// 2. Activate Event: Cleanup old versions of the app
+// 2. Activate Event: Cleanup old versions globally
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
@@ -29,7 +30,7 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// 3. Fetch Event: Serve the saved files even without internet
+// 3. Fetch Event: Serve the latest saved files
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
@@ -37,4 +38,3 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
-
