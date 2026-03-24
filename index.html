@@ -137,6 +137,11 @@ main {
     <a href="#deals">Deals</a> <a href="#pizzas">Pizzas</a> <a href="#burgers">Burgers & Sandwiches</a> 
     <a href="#wraps">Wraps & Shawarma</a> <a href="#pasta">Pasta</a> <a href="#starters">Starters</a>
     <a href="#fries">Fries & Fried </a> <a href="#shakes">Shakes & Smoothies</a> <a href="#icecream">Ice Cream & Desserts</a>
+    <a href="#beverages">Drinks</a> <a href="#extras">Toppings</a>
+<a href="#slices">Slices & Dips</a>
+
+
+    
 </nav>
 
 <main>
@@ -166,6 +171,14 @@ main {
 
     <div id="icecream" class="section-header">ICE CREAM & DESSERTS</div>
     <div id="render-icecream"></div>
+        <div id="beverages" class="section-header">BEVERAGES & WATER</div>
+    <div id="render-beverages"></div>
+       <div id="extras" class="section-header">EXTRA TOPPINGS</div>
+    <div id="render-extras"></div>
+
+    <div id="slices" class="section-header">SLICES & DIPS</div>
+    <div id="render-slices"></div>
+ 
 </main>
 
 <div class="footer-cart">
@@ -251,14 +264,36 @@ main {
             {n:"Crispy Wings (6pc)", p:399}, {n:"Crispy Wings (12pc)", p:749}, {n:"Oven Baked BBQ (6pc)", p:449}
         ],
         shakes: [
-            {n:"Mango / Strawberry Shake", p:449}, {n:"Oreo / KitKat Shake", p:549}, {n:"Nutella / M&M Shake", p:549},
-            {n:"Bounty / Snickers Shake", p:549}, {n:"Choco Brownie Shake", p:549}, {n:"Pinacolada", p:549}
+            {n:"Mango ", p:449}, {n:"Strawberry Shake", p:449}, {n:"Oreo", p:549 } {n: "KitKat Shake", p:549}, {n:"Nutella" , p: 549 }, {n: "M&M Shake", p:549},
+            {n:"Bounty", p:549}, {n:"Snickers Shake", p:549}, {n:"Choco Brownie Shake", p:549}, {n:"Pinacolada", p:549}
         ],
-        icecream: [
+                icecream: [
             {n:"2 Scoops", p:249}, {n:"3 Scoops", p:349}, {n:"Donuts", p:349}, {n:"Molten Lava with Ice Cream", p:599}, {n:"Brownie with Ice Cream", p:449}
+        ],
+        beverages: [
+            {n:"NR (Regular Drink)", p:100},
+            {n:"Tin Can", p:180},
+            {n:"Half Liter (0.5L)", p:150},
+            {n:"1 Liter Drink", p:220},
+            {n:"1.5 Liter Drink", p:300},
+            {n:"Water (500ml)", p:60},
+            {n:"Water (1.5L)", p:120}
+        ],
+                extras: [
+            {n:"Extra Cheese (Small)", p:150},
+            {n:"Extra Cheese (Medium)", p:200},
+            {n:"Extra Cheese (Large)", p:250},
+            {n:"Extra Topping (Veggies)", p:100},
+            {n:"Extra Topping (Meat)", p:150}
+        ],
+        slices_dips: [
+            {n:"Extra Pizza Slice", p:200},
+            {n:"Garlic Mayo Dip", p:50},
+            {n:"Chilli Garlic Dip", p:50},
+            {n:"Special Saltino Sauce", p:80}
         ]
-    };
-
+            
+                
     function addToCart(n, p) {
         cart.push({n, p}); total += p;
         document.getElementById('total-val').innerText = total;
@@ -310,6 +345,11 @@ main {
     renderItems('render-fries', menuData.fries);
     renderItems('render-shakes', menuData.shakes);
     renderItems('render-icecream', menuData.icecream);
+        renderItems('render-beverages', menuData.beverages);
+        renderItems('render-extras', menuData.extras);
+    renderItems('render-slices', menuData.slices_dips);
+
+
 
     document.getElementById('render-pizzas').innerHTML = menuData.pizzas.map((p, idx) => `
         <div class="pizza-card"><strong>${p.c}</strong><select id="flv-${idx}" class="flavor-select">${p.f.map(f => `<option>${f}</option>`).join('')}</select>
