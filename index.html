@@ -170,9 +170,21 @@ main {
 
 <div id="wings" class="section-header">WINGS</div>
 <div id="render-wings"></div>
- <div id="shakes" class="section-header">SHAKES & SMOOTHIES</div>
-    <div id="render-shakes"></div>
+     <div class="section-header">SHAKES & SMOOTHIES (STANDARD)</div>
+    <div id="render-shakes-std"></div>
+    
+    <div class="section-header">SHAKES & SMOOTHIES (PREMIUM)</div>
+    <div id="render-shakes-pre"></div>
 
+    <div class="section-header">COLD DRINKS & MOJITOS</div>
+    <div id="render-drinks-cold"></div>
+
+    <div class="section-header">TEA CORNER</div>
+    <div id="render-drinks-tea"></div>
+
+    <div class="section-header">COFFEE HOUSE</div>
+    <div id="render-drinks-coffee"></div>
+    
     <div id="icecream" class="section-header">ICE CREAM & DESSERTS</div>
     <div id="render-icecream"></div>
         <div id="beverages" class="section-header">BEVERAGES & WATER</div>
@@ -286,14 +298,32 @@ main {
             {n:"Alfredo Pasta (Half)", p:449}, {n:"Alfredo Pasta (Full)", p:699},
             {n:"Chicken Chowmein", p:599}, {n:"Crunchy Pasta", p:699}
         ],
-        shakes: [
+                // SHAKES & SMOOTHIES (Split into 2 groups)
+        shakes_standard: [
             {n:"Mango", p:449}, {n:"Strawberry", p:449}, {n:"Kulfa", p:449}, 
             {n:"Pistacho", p:449}, {n:"Chocolate", p:449}, {n:"Coconut", p:449}, 
-            {n:"Pinacolada (Smoothie)", p:449}, {n:"Oreo Shake", p:549}, 
-            {n:"Kitkat Shake", p:549}, {n:"Bounty Shake", p:549}, 
+            {n:"Pinacolada (Smoothie)", p:449}
+        ],
+        shakes_premium: [
+            {n:"Oreo Shake", p:549}, {n:"Kitkat Shake", p:549}, {n:"Bounty Shake", p:549}, 
             {n:"Snakers Shake", p:549}, {n:"Choco Brownie Shake", p:549}, 
             {n:"M&M Shake", p:549}, {n:"Nutella Shake", p:549}, {n:"Pinacolada (Shake)", p:549}
         ],
+
+        // DRINK AND COFFEES (Split into 3 groups)
+        drinks_cold: [
+            {n:"Lemonade", p:299}, {n:"Mint Margarita", p:299}, {n:"Blue Lagoon", p:499},
+            {n:"Mint Mojito", p:499}, {n:"Peach Mojito", p:499}
+        ],
+        drinks_teas: [
+            {n:"Guru Tea", p:249}, {n:"Karak Tea", p:199}, {n:"Cardamom Tea", p:199}
+        ],
+        drinks_coffees: [
+            {n:"Black Coffee", p:299}, {n:"Cappuccino", p:299}, {n:"Latte", p:299}, 
+            {n:"Espresso", p:199}, {n:"Mocha", p:399}, {n:"Cold Coffee", p:499}, 
+            {n:"Americano", p:499}
+        ],
+           
         icecream: [
             {n:"2 Scoops", p:249}, {n:"3 Scoops", p:349}, {n:"Donuts", p:349}, 
             {n:"Molten Lava with Ice Cream", p:599}, {n:"Brownie with Ice Cream", p:449}
@@ -365,7 +395,12 @@ main {
     renderItems('render-pasta', menuData.pasta);
     renderItems('render-starters', menuData.starters);
     renderItems('render-fries', menuData.fries);
-    renderItems('render-shakes', menuData.shakes);
+        renderItems('render-shakes-std', menuData.shakes_standard);
+    renderItems('render-shakes-pre', menuData.shakes_premium);
+    renderItems('render-drinks-cold', menuData.drinks_cold);
+    renderItems('render-drinks-tea', menuData.drinks_teas);
+    renderItems('render-drinks-coffee', menuData.drinks_coffees);
+    
     renderItems('render-icecream', menuData.icecream);
         renderItems('render-beverages', menuData.beverages);
         renderItems('render-extras', menuData.extras);
