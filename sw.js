@@ -1,4 +1,4 @@
-const CACHE_NAME = 'saltino-v4';
+const CACHE_NAME = 'saltino-v5';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
