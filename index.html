@@ -147,8 +147,7 @@ main {
     <a href="#fries">Fries</a> 
     <a href="#shakes">Shakes</a> <a href="#icecream">Desserts</a>
     <a href="#coffees">Drink & Coffee</a> <a href="#beverages">Beverages</a>
-    <a href="#extras">Toppings</a> 
-    <a href="#slices">Slices & Dips</a> 
+    <a href="#extras">Add on</a> 
 </nav>
     
 <main>
@@ -199,14 +198,9 @@ main {
 
     <div id="beverages" class="section-header">BEVERAGES</div>
     <div id="render-beverages"></div>
-
-    <div id="extras" class="section-header">EXTRA TOPPINGS</div>
-    <div id="render-extras"></div>
-
-    <div id="slices" class="section-header">SLICES & DIPS</div>
-    <div id="render-slices"></div>
+<div id="addon" class="section-header">ADD ONS</div
+    <div id="render-addon"></div> 
 </main>
-    
     
 <div class="footer-cart">
     <div class="cart-top">
@@ -345,11 +339,9 @@ main {
             {n:"1 Liter", p:179}, {n:"1.5 Liter", p:229}, 
             {n:"Water (500ml)", p:79}, {n:"Water (1.5L)", p:119}
         ],
-        extras: [
+        add_on: [
             {n:"Cheese Slice", p:79}, {n:"Mushroom", p:69}, 
-            {n:"Sweet Corn", p:69}, {n:"Olive", p:69}, {n:"Jalapeno", p:69}
-        ],
-        slices_dips: [
+            {n:"Sweet Corn", p:69}, {n:"Olive", p:69}, {n:"Jalapeno", p:69},
             {n:"Bbq Sauce", p:69}, {n:"Periperi Sauce", p:69}, {n:"Mushroom Sauce", p:99},
             {n:"Garlic Sauce", p:69}, {n:"Dynamite Sauce", p:69}, {n:"Ranch Sauce", p:69},
             {n:"Chipotle Sauce", p:69}
@@ -417,8 +409,8 @@ main {
     renderItems('render-drinks-coffee', menuData.drinks_coffees);
     renderItems('render-icecream', menuData.icecream);
     renderItems('render-beverages', menuData.beverages);
-    renderItems('render-extras', menuData.extras);
-    renderItems('render-slices', menuData.slices_dips);
+    renderItems('render-addon', menuData.addon);
+    
     
 
 
